@@ -12,5 +12,8 @@ public class Main {
         tree.insert(80);
     
         System.out.println("Tree created successfully!");
+
+        System.out.println("Printing the Binary Search Tree:");
+        tree.printBST();
     }
 }
