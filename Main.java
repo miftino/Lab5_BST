@@ -19,5 +19,9 @@ public class Main {
 
         tree.delete(50);
         tree.printBST();
+
+        System.out.println("Searching for 40: " + tree.search(40));
+        System.out.println("Searching for 100: " + tree.search(100)); 
+        
     }
 }

@@ -101,4 +101,24 @@ public class BinarySearchTree {
         }
         return min;
     }
+
+
+    // Method to search for a node with given data
+    public boolean search(int data) {
+        return searchRec(root, data);
+    }
+
+    private boolean searchRec(Node root, int data) {
+        if (root == null) {
+            return false;
+        }
+        if (root.data == data) {
+            return true;
+        }
+        if (data < root.data) {
+            return searchRec(root.left, data);
+        } else {
+            return searchRec(root.right, data);
+        }
+    }
 }
