@@ -15,5 +15,9 @@ public class Main {
 
         System.out.println("Printing the Binary Search Tree:");
         tree.printBST();
+
+
+        tree.delete(50);
+        tree.printBST();
     }
 }

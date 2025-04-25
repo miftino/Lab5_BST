@@ -53,4 +53,52 @@ public class BinarySearchTree {
         }
         System.out.println();
     }
+
+
+    // Method to delete node
+    // There are 3 cases
+    public void delete(int data){
+        root = deleteRec(root, data);
+    }
+
+    private Node deleteRec(Node root, int data){
+        if (root == null){
+            return root;
+        }
+
+        if (data < root.data) {
+            root.left = deleteRec(root.left, data);
+        } else if (data > root.data) {
+            root.right = deleteRec(root.right, data);
+        } else {
+    
+            // Case 1: No child
+            if (root.left == null && root.right == null) {
+                return null;
+            }
+            // Case 2: One child (only right child)
+            else if (root.left == null) {
+                return root.right;
+            }
+            // Case 2: One child (only left child)
+            else if (root.right == null) {
+                return root.left;
+            }
+            // Case 3: Two children
+            else {
+                root.data = minValue(root.right);
+                root.right = deleteRec(root.right, root.data);
+            }
+        }
+        return root;
+    }
+    
+    private int minValue(Node root) {
+        int min = root.data;
+        while (root.left != null) {
+            root = root.left;
+            min = root.data;
+        }
+        return min;
+    }
 }
